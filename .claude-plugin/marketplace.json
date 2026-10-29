@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "multi-workspace-for-notion",
+  "description": "Multi-Workspace for Notion",
+  "owner": { "name": "heoeunseo" },
+  "plugins": [
+    {
+      "name": "multi-workspace",
+      "description": "Use several Notion workspaces at once in Claude Code, with every official Notion MCP tool.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

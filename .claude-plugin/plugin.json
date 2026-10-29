@@ -1,0 +1,37 @@
+{
+  "name": "multi-workspace",
+  "version": "0.4.1",
+  "description": "Use several Notion workspaces at once in Claude Code, with every official Notion MCP tool. Unofficial; not affiliated with Notion.",
+  "author": {
+    "name": "heoeunseo"
+  },
+  "repository": "https://github.com/heoeunseo08/multi-workspace-for-notion",
+  "license": "MIT",
+  "keywords": [
+    "notion",
+    "mcp",
+    "workspace"
+  ],
+  "mcpServers": {
+    "multi-workspace": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/plugin/server.mjs"
+      ]
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/plugin/server.mjs\" session-start",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

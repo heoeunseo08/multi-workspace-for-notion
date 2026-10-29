@@ -1,0 +1,41 @@
+{
+  "manifest_version": "0.2",
+  "name": "multi-workspace-for-notion",
+  "display_name": "Multi-Workspace for Notion",
+  "version": "0.4.1",
+  "description": "Use several Notion workspaces at once, with every official Notion MCP tool. Unofficial; not affiliated with Notion.",
+  "author": {
+    "name": "heoeunseo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heoeunseo08/multi-workspace-for-notion"
+  },
+  "license": "MIT",
+  "keywords": [
+    "notion",
+    "mcp",
+    "workspace"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "plugin/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/plugin/server.mjs"
+      ]
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  }
+}

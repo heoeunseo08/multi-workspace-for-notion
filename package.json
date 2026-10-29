@@ -1,0 +1,43 @@
+{
+  "name": "multi-workspace-for-notion",
+  "version": "0.4.1",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node20 --legal-comments=none --outfile=plugin/server.mjs --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\"",
+    "test": "node --import tsx --test \"src/**/*.test.ts\"",
+    "pack:mcpb": "npm run build && npx -y @anthropic-ai/mcpb@2 pack . multi-workspace-for-notion.mcpb",
+    "prepublishOnly": "npm run build",
+    "check:bundle": "npm run build && git diff --exit-code --stat plugin/server.mjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  },
+  "description": "Use several Notion workspaces at once from Claude Code and Claude Desktop, with the official Notion MCP tools",
+  "license": "MIT",
+  "author": "heoeunseo",
+  "bin": {
+    "multi-workspace-for-notion": "plugin/server.mjs"
+  },
+  "files": [
+    "plugin/server.mjs"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "notion",
+    "claude"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heoeunseo08/multi-workspace-for-notion.git"
+  }
+}

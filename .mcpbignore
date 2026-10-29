@@ -1,0 +1,17 @@
+# The bundle needs only the manifest and the bundled server (plugin/server.mjs).
+.git/
+.claude-plugin/
+.claude/
+node_modules/
+src/
+dist/
+skills/
+README.ko.md
+package.json
+package-lock.json
+tsconfig*.json
+*.mcpb
+.gitignore
+.mcpbignore
+.DS_Store
+scripts/
